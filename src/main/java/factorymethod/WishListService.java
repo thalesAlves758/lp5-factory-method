@@ -9,7 +9,7 @@ public class WishListService implements IService<WishList> {
         return null;
     }
 
-    public WishList getById() {
+    public WishList getById(int id) {
         return null;
     }
 

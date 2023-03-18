@@ -9,7 +9,7 @@ public class ProductService implements IService<Product> {
         return null;
     }
 
-    public Product getById() {
+    public Product getById(int id) {
         return null;
     }
 

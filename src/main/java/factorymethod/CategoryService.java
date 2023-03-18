@@ -9,7 +9,7 @@ public class CategoryService implements IService<Category> {
         return null;
     }
 
-    public Category getById() {
+    public Category getById(int id) {
         return null;
     }
 

@@ -9,7 +9,7 @@ public class RatingService implements IService<Rating> {
         return null;
     }
 
-    public Rating getById() {
+    public Rating getById(int id) {
         return null;
     }
 
