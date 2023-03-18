@@ -1,8 +1,17 @@
 package entity;
 
 public class Rating {
+    private int id;
     private Double starValue;
     private String comment;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Double getStarValue() {
         return starValue;
