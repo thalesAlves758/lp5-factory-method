@@ -10,7 +10,7 @@ public class CategoryService implements IService<Category> {
     }
 
     public Category getById(int id) {
-        return Category.categories.stream().filter(category -> category.getId() == id).findFirst().orElseGet(null);
+        return Category.categories.stream().filter(category -> category.getId() == id).findFirst().orElse(null);
     }
 
     public void create(Category object) {
