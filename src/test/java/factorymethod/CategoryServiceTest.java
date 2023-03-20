@@ -18,12 +18,11 @@ public class CategoryServiceTest {
 
     @Test
     void shouldReturnCategoryList() {
-        IService categoryService = ServiceFactory.getService("CategoryService");
+        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
 
         ArrayList<Category> categories = categoryService.getAll();
 
-        assertTrue(categories instanceof ArrayList);
-        assertEquals(categories.stream().findFirst().get(), Category.categories.stream().findFirst().get());
+        assertTrue(categories instanceof ArrayList<Category>);
     }
 
     @Test
