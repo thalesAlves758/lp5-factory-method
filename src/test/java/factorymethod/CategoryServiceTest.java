@@ -42,4 +42,16 @@ public class CategoryServiceTest {
 
         assertEquals(null, category);
     }
+
+    @Test
+    void shouldCreateCategory() {
+        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
+
+        Category category = new Category(null, "Teste 2");
+        int oldLength = Category.categories.size();
+        categoryService.create(category);
+
+        assertTrue(Category.categories.contains(category));
+        assertEquals(oldLength + 1, Category.categories.size());
+    }
 }
