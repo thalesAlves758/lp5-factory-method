@@ -25,4 +25,13 @@ public class CategoryServiceTest {
         assertTrue(categories instanceof ArrayList);
         assertEquals(categories.stream().findFirst().get(), Category.categories.stream().findFirst().get());
     }
+
+    @Test
+    void shouldReturnSpecifiedCategory() {
+        IService categoryService = ServiceFactory.getService("CategoryService");
+
+        Category category = (Category) categoryService.getById(1);
+
+        assertEquals(category, Category.categories.stream().findFirst().get());
+    }
 }
