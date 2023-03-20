@@ -54,4 +54,18 @@ public class CategoryServiceTest {
         assertTrue(Category.categories.contains(category));
         assertEquals(oldLength + 1, Category.categories.size());
     }
+
+    @Test
+    void shouldThrowAnExceptionOnUpdate() {
+        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
+
+        Category category = new Category(999, "Teste 2");
+
+        try {
+            categoryService.update(category);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this category", e.getMessage());
+        }
+    }
 }
