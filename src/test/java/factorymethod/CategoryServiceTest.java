@@ -11,15 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CategoryServiceTest {
+    IService<Category> categoryService;
+
     @BeforeAll
     void setUp() {
+        categoryService = ServiceFactory.getService("CategoryService");
         Category.categories.add(new Category(1, "Teste"));
     }
 
     @Test
     void shouldReturnCategoryList() {
-        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
-
         ArrayList<Category> categories = categoryService.getAll();
 
         assertTrue(categories instanceof ArrayList<Category>);
@@ -27,8 +28,6 @@ public class CategoryServiceTest {
 
     @Test
     void shouldReturnSpecifiedCategory() {
-        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
-
         Category category = categoryService.getById(1);
 
         assertEquals(category, Category.categories.stream().findFirst().get());
@@ -36,8 +35,6 @@ public class CategoryServiceTest {
 
     @Test
     void shouldReturnNull() {
-        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
-
         Category category = categoryService.getById(999);
 
         assertEquals(null, category);
@@ -45,8 +42,6 @@ public class CategoryServiceTest {
 
     @Test
     void shouldCreateCategory() {
-        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
-
         Category category = new Category(null, "Teste 2");
         int oldLength = Category.categories.size();
         categoryService.create(category);
@@ -57,8 +52,6 @@ public class CategoryServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnUpdate() {
-        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
-
         Category category = new Category(999, "Teste 2");
 
         try {
