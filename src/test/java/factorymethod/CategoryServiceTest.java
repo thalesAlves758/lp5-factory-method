@@ -40,6 +40,6 @@ public class CategoryServiceTest {
 
         Category category = categoryService.getById(999);
 
-        assertEquals(category, null);
+        assertEquals(null, category);
     }
 }
