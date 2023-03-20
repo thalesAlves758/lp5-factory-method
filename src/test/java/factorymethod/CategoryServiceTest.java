@@ -27,9 +27,9 @@ public class CategoryServiceTest {
 
     @Test
     void shouldReturnSpecifiedCategory() {
-        IService categoryService = ServiceFactory.getService("CategoryService");
+        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
 
-        Category category = (Category) categoryService.getById(1);
+        Category category = categoryService.getById(1);
 
         assertEquals(category, Category.categories.stream().findFirst().get());
     }
