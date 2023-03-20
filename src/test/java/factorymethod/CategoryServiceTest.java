@@ -77,4 +77,16 @@ public class CategoryServiceTest {
             fail();
         }
     }
+
+    @Test
+    void shouldThrowAnExceptionOnDelete() {
+        Category category = new Category(999, "Teste 2");
+
+        try {
+            categoryService.delete(category);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this category", e.getMessage());
+        }
+    }
 }
