@@ -61,4 +61,20 @@ public class CategoryServiceTest {
             assertEquals("Could not find this category", e.getMessage());
         }
     }
+
+    @Test
+    void shouldUpdateCategory() {
+        int index = 0;
+        Category categoryToUpdate = Category.categories.get(index);
+        String oldName = categoryToUpdate.getName();
+        categoryToUpdate.setName("Teste 2");
+
+        try {
+            categoryService.update(categoryToUpdate);
+            assertEquals(categoryToUpdate, Category.categories.get(index));
+            assertNotEquals(oldName, Category.categories.get(index).getName());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
