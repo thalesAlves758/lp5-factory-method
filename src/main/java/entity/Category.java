@@ -10,6 +10,6 @@ import java.util.ArrayList;
 public class Category {
     public static ArrayList<Category> categories = new ArrayList<Category>();
 
-    private int id;
+    private Integer id;
     private String name;
 }
