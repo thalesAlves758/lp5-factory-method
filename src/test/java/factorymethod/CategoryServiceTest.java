@@ -33,4 +33,13 @@ public class CategoryServiceTest {
 
         assertEquals(category, Category.categories.stream().findFirst().get());
     }
+
+    @Test
+    void shouldReturnNull() {
+        IService<Category> categoryService = ServiceFactory.getService("CategoryService");
+
+        Category category = categoryService.getById(999);
+
+        assertEquals(category, null);
+    }
 }
