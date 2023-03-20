@@ -89,4 +89,17 @@ public class CategoryServiceTest {
             assertEquals("Could not find this category", e.getMessage());
         }
     }
+
+    @Test
+    void shouldDeleteCategory() {
+        int oldLength = Category.categories.size();
+        Category categoryToRemove = Category.categories.get(0);
+
+        try {
+            categoryService.delete(categoryToRemove);
+            assertEquals(oldLength - 1, Category.categories.size());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
