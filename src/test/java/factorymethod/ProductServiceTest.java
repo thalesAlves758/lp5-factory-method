@@ -33,4 +33,11 @@ public class ProductServiceTest {
 
         assertEquals(product, Product.products.stream().findFirst().get());
     }
+
+    @Test
+    void shouldReturnNull() {
+        Product product = productService.getById(999);
+
+        assertEquals(null, product);
+    }
 }
