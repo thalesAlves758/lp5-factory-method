@@ -62,4 +62,20 @@ public class RatingServiceTest {
             assertEquals("Could not find this rating", e.getMessage());
         }
     }
+
+    @Test
+    void shouldUpdateRating() {
+        int index = 0;
+        Rating ratingToUpdate = Rating.ratings.get(index);
+        String oldComment = ratingToUpdate.getComment();
+        ratingToUpdate.setComment("Teste 2");
+
+        try {
+            ratingService.update(ratingToUpdate);
+            assertEquals(ratingToUpdate, Rating.ratings.get(index));
+            assertNotEquals(oldComment, Rating.ratings.get(index).getComment());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
