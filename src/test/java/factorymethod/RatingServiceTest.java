@@ -50,4 +50,16 @@ public class RatingServiceTest {
         assertTrue(Rating.ratings.contains(rating));
         assertEquals(oldLength + 1, Rating.ratings.size());
     }
+
+    @Test
+    void shouldThrowAnExceptionOnUpdate() {
+        Rating rating = new Rating(999, 2d, "Teste");
+
+        try {
+            ratingService.update(rating);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this rating", e.getMessage());
+        }
+    }
 }
