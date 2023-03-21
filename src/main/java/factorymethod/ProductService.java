@@ -34,7 +34,7 @@ public class ProductService implements IService<Product> {
         Product foundProduct = this.getById(object.getId());
 
         if(foundProduct == null) {
-            throw new Exception("Could not find this category");
+            throw new Exception("Could not find this product");
         }
 
         Product.products.remove(foundProduct);
