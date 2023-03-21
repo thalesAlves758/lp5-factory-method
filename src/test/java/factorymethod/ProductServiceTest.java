@@ -78,4 +78,16 @@ public class ProductServiceTest {
             fail();
         }
     }
+
+    @Test
+    void shouldThrowAnExceptionOnDelete() {
+        Product product = new Product(999, "Teste 2", 10d);
+
+        try {
+            productService.delete(product);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this product", e.getMessage());
+        }
+    }
 }
