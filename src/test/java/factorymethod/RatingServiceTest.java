@@ -40,4 +40,14 @@ public class RatingServiceTest {
 
         assertEquals(null, rating);
     }
+
+    @Test
+    void shouldCreateRating() {
+        Rating rating = new Rating(null, 2d, "Teste");
+        int oldLength = Rating.ratings.size();
+        ratingService.create(rating);
+
+        assertTrue(Rating.ratings.contains(rating));
+        assertEquals(oldLength + 1, Rating.ratings.size());
+    }
 }
