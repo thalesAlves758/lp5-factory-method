@@ -26,4 +26,11 @@ public class RatingServiceTest {
 
         assertTrue(ratings instanceof ArrayList<Rating>);
     }
+
+    @Test
+    void shouldReturnSpecifiedRating() {
+        Rating rating = ratingService.getById(1);
+
+        assertEquals(rating, Rating.ratings.stream().findFirst().get());
+    }
 }
