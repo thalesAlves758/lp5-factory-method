@@ -33,4 +33,11 @@ public class RatingServiceTest {
 
         assertEquals(rating, Rating.ratings.stream().findFirst().get());
     }
+
+    @Test
+    void shouldReturnNull() {
+        Rating rating = ratingService.getById(999);
+
+        assertEquals(null, rating);
+    }
 }
