@@ -90,4 +90,17 @@ public class RatingServiceTest {
             assertEquals("Could not find this rating", e.getMessage());
         }
     }
+
+    @Test
+    void shouldDeleteRating() {
+        int oldLength = Rating.ratings.size();
+        Rating ratingToRemove = Rating.ratings.get(0);
+
+        try {
+            ratingService.delete(ratingToRemove);
+            assertEquals(oldLength - 1, Rating.ratings.size());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
