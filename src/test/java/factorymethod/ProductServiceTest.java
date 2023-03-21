@@ -26,4 +26,11 @@ public class ProductServiceTest {
 
         assertTrue(products instanceof ArrayList<Product>);
     }
+
+    @Test
+    void shouldReturnSpecifiedProduct() {
+        Product product = productService.getById(1);
+
+        assertEquals(product, Product.products.stream().findFirst().get());
+    }
 }
