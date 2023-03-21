@@ -2,6 +2,7 @@ package factorymethod;
 
 import entity.Category;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -13,9 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CategoryServiceTest {
     IService<Category> categoryService;
 
-    @BeforeAll
+    @BeforeEach
     void setUp() {
         categoryService = ServiceFactory.getService("CategoryService");
+        Category.categories = new ArrayList<>();
         Category.categories.add(new Category(1, "Teste"));
     }
 
