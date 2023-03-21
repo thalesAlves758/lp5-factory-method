@@ -62,4 +62,20 @@ public class ProductServiceTest {
             assertEquals("Could not find this product", e.getMessage());
         }
     }
+
+    @Test
+    void shouldUpdateProduct() {
+        int index = 0;
+        Product productToUpdate = Product.products.get(index);
+        String oldName = productToUpdate.getName();
+        productToUpdate.setName("Teste 2");
+
+        try {
+            productService.update(productToUpdate);
+            assertEquals(productToUpdate, Product.products.get(index));
+            assertNotEquals(oldName, Product.products.get(index).getName());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
