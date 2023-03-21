@@ -40,4 +40,14 @@ public class ProductServiceTest {
 
         assertEquals(null, product);
     }
+
+    @Test
+    void shouldCreateProduct() {
+        Product product = new Product(null, "Teste 2", 10d);
+        int oldLength = Product.products.size();
+        productService.create(product);
+
+        assertTrue(Product.products.contains(product));
+        assertEquals(oldLength + 1, Product.products.size());
+    }
 }
