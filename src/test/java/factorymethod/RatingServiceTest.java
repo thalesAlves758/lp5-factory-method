@@ -78,4 +78,16 @@ public class RatingServiceTest {
             fail();
         }
     }
+
+    @Test
+    void shouldThrowAnExceptionOnDelete() {
+        Rating rating = new Rating(999, 2d, "Teste");
+
+        try {
+            ratingService.delete(rating);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this rating", e.getMessage());
+        }
+    }
 }
