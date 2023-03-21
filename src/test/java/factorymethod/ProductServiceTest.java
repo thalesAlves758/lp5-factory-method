@@ -90,4 +90,17 @@ public class ProductServiceTest {
             assertEquals("Could not find this product", e.getMessage());
         }
     }
+
+    @Test
+    void shouldDeleteProduct() {
+        int oldLength = Product.products.size();
+        Product productToRemove = Product.products.get(0);
+
+        try {
+            productService.delete(productToRemove);
+            assertEquals(oldLength - 1, Product.products.size());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
