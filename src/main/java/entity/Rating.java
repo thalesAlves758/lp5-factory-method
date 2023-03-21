@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Rating {
     public static ArrayList<Rating> ratings = new ArrayList<Rating>();
 
-    private int id;
+    private Integer id;
     private Double starValue;
     private String comment;
 }

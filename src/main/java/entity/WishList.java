@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class WishList {
     public static ArrayList<WishList> wishLists = new ArrayList<WishList>();
 
-    private int id;
+    private Integer id;
     private String title;
     private String description;
 }

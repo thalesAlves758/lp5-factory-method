@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Product {
     public static ArrayList<Product> products = new ArrayList<Product>();
 
-    private int id;
+    private Integer id;
     private String name;
     private Double value;
 }
