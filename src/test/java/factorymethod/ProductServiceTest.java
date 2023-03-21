@@ -1,6 +1,5 @@
 package factorymethod;
 
-import entity.Category;
 import entity.Product;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
