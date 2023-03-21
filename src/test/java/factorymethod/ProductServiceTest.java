@@ -50,4 +50,16 @@ public class ProductServiceTest {
         assertTrue(Product.products.contains(product));
         assertEquals(oldLength + 1, Product.products.size());
     }
+
+    @Test
+    void shouldThrowAnExceptionOnUpdate() {
+        Product product = new Product(999, "Teste 2", 10d);
+
+        try {
+            productService.update(product);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this product", e.getMessage());
+        }
+    }
 }
