@@ -61,4 +61,20 @@ public class WishListServiceTest {
             assertEquals("Could not find this wish list", e.getMessage());
         }
     }
+
+    @Test
+    void shouldUpdateWishList() {
+        int index = 0;
+        WishList wishListToUpdate = WishList.wishLists.get(index);
+        String oldTitle = wishListToUpdate.getTitle();
+        wishListToUpdate.setTitle("Teste 2");
+
+        try {
+            wishListService.update(wishListToUpdate);
+            assertEquals(wishListToUpdate, WishList.wishLists.get(index));
+            assertNotEquals(oldTitle, WishList.wishLists.get(index).getTitle());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
