@@ -32,4 +32,11 @@ public class WishListServiceTest {
 
         assertEquals(wishList, WishList.wishLists.stream().findFirst().get());
     }
+
+    @Test
+    void shouldReturnNull() {
+        WishList wishList = wishListService.getById(999);
+
+        assertEquals(null, wishList);
+    }
 }
