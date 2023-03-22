@@ -89,4 +89,17 @@ public class WishListServiceTest {
             assertEquals("Could not find this wish list", e.getMessage());
         }
     }
+
+    @Test
+    void shouldDeleteWishList() {
+        int oldLength = WishList.wishLists.size();
+        WishList wishListToRemove = WishList.wishLists.get(0);
+
+        try {
+            wishListService.delete(wishListToRemove);
+            assertEquals(oldLength - 1, WishList.wishLists.size());
+        } catch (Exception e) {
+            fail();
+        }
+    }
 }
