@@ -39,4 +39,14 @@ public class WishListServiceTest {
 
         assertEquals(null, wishList);
     }
+
+    @Test
+    void shouldCreateWishList() {
+        WishList wishList = new WishList(null, "Teste", "Texto descritivo");
+        int oldLength = WishList.wishLists.size();
+        wishListService.create(wishList);
+
+        assertTrue(WishList.wishLists.contains(wishList));
+        assertEquals(oldLength + 1, WishList.wishLists.size());
+    }
 }
