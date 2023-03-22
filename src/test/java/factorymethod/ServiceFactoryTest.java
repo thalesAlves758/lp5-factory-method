@@ -24,4 +24,14 @@ public class ServiceFactoryTest {
             assertEquals("Could not find service", e.getMessage());
         }
     }
+
+    @Test
+    void shouldGetInvalidService() {
+        try {
+            ServiceFactory.getService("UserService");
+            fail();
+        } catch (Exception e) {
+            assertEquals("Invalid service", e.getMessage());
+        }
+    }
 }
