@@ -49,4 +49,16 @@ public class WishListServiceTest {
         assertTrue(WishList.wishLists.contains(wishList));
         assertEquals(oldLength + 1, WishList.wishLists.size());
     }
+
+    @Test
+    void shouldThrowAnExceptionOnUpdate() {
+        WishList wishList = new WishList(999, "Teste", "Texto descritivo");
+
+        try {
+            wishListService.update(wishList);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this wish list", e.getMessage());
+        }
+    }
 }
