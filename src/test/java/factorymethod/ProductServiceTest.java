@@ -17,8 +17,8 @@ public class ProductServiceTest {
     @BeforeEach
     void setUp() {
         productService = ServiceFactory.getService("ProductService");
-        Product.products = new ArrayList<>();
-        Product.products.add(new Product(1, "Teste", 10d));
+        Product.reset();
+        Product.products.add(new Product("Teste", 10d));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ProductServiceTest {
 
     @Test
     void shouldCreateProduct() {
-        Product product = new Product(null, "Teste 2", 10d);
+        Product product = new Product("Teste 2", 10d);
         int oldLength = Product.products.size();
         productService.create(product);
 
@@ -54,7 +54,7 @@ public class ProductServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnUpdate() {
-        Product product = new Product(999, "Teste 2", 10d);
+        Product product = new Product("Teste 2", 10d);
 
         try {
             productService.update(product);
@@ -82,7 +82,7 @@ public class ProductServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnDelete() {
-        Product product = new Product(999, "Teste 2", 10d);
+        Product product = new Product("Teste 2", 10d);
 
         try {
             productService.delete(product);

@@ -17,8 +17,8 @@ public class RatingServiceTest {
     @BeforeEach
     void setUp() {
         ratingService = ServiceFactory.getService("RatingService");
-        Rating.ratings = new ArrayList<>();
-        Rating.ratings.add(new Rating(1, 2d, "Teste"));
+        Rating.reset();
+        Rating.ratings.add(new Rating(2d, "Teste"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class RatingServiceTest {
 
     @Test
     void shouldCreateRating() {
-        Rating rating = new Rating(null, 2d, "Teste");
+        Rating rating = new Rating(2d, "Teste");
         int oldLength = Rating.ratings.size();
         ratingService.create(rating);
 
@@ -54,7 +54,7 @@ public class RatingServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnUpdate() {
-        Rating rating = new Rating(999, 2d, "Teste");
+        Rating rating = new Rating(2d, "Teste");
 
         try {
             ratingService.update(rating);
@@ -82,7 +82,7 @@ public class RatingServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnDelete() {
-        Rating rating = new Rating(999, 2d, "Teste");
+        Rating rating = new Rating(2d, "Teste");
 
         try {
             ratingService.delete(rating);

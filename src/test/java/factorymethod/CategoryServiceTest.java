@@ -17,8 +17,8 @@ public class CategoryServiceTest {
     @BeforeEach
     void setUp() {
         categoryService = ServiceFactory.getService("CategoryService");
-        Category.categories = new ArrayList<>();
-        Category.categories.add(new Category(1, "Teste"));
+        Category.reset();
+        Category.categories.add(new Category("Teste"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CategoryServiceTest {
 
     @Test
     void shouldCreateCategory() {
-        Category category = new Category(null, "Teste 2");
+        Category category = new Category("Teste 2");
         int oldLength = Category.categories.size();
         categoryService.create(category);
 
@@ -54,7 +54,7 @@ public class CategoryServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnUpdate() {
-        Category category = new Category(999, "Teste 2");
+        Category category = new Category("Teste 2");
 
         try {
             categoryService.update(category);
@@ -82,7 +82,7 @@ public class CategoryServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnDelete() {
-        Category category = new Category(999, "Teste 2");
+        Category category = new Category("Teste 2");
 
         try {
             categoryService.delete(category);

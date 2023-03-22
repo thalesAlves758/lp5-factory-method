@@ -15,8 +15,8 @@ public class WishListServiceTest {
     @BeforeEach
     void setUp() {
         wishListService = ServiceFactory.getService("WishListService");
-        WishList.wishLists = new ArrayList<>();
-        WishList.wishLists.add(new WishList(1, "Teste", "Texto descritivo"));
+        WishList.reset();
+        WishList.wishLists.add(new WishList("Teste", "Texto descritivo"));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class WishListServiceTest {
 
     @Test
     void shouldCreateWishList() {
-        WishList wishList = new WishList(null, "Teste", "Texto descritivo");
+        WishList wishList = new WishList("Teste", "Texto descritivo");
         int oldLength = WishList.wishLists.size();
         wishListService.create(wishList);
 
@@ -52,7 +52,7 @@ public class WishListServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnUpdate() {
-        WishList wishList = new WishList(999, "Teste", "Texto descritivo");
+        WishList wishList = new WishList("Teste", "Texto descritivo");
 
         try {
             wishListService.update(wishList);
@@ -80,7 +80,7 @@ public class WishListServiceTest {
 
     @Test
     void shouldThrowAnExceptionOnDelete() {
-        WishList wishList = new WishList(999, "Teste", "Teste");
+        WishList wishList = new WishList("Teste", "Teste");
 
         try {
             wishListService.delete(wishList);
