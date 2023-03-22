@@ -25,4 +25,11 @@ public class WishListServiceTest {
 
         assertTrue(wishLists instanceof ArrayList<WishList>);
     }
+
+    @Test
+    void shouldReturnSpecifiedWishList() {
+        WishList wishList = wishListService.getById(1);
+
+        assertEquals(wishList, WishList.wishLists.stream().findFirst().get());
+    }
 }
