@@ -14,4 +14,14 @@ public class ServiceFactoryTest {
             fail();
         }
     }
+
+    @Test
+    void shouldNotFindAService() {
+        try {
+            ServiceFactory.getService("ZZZZZZ");
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find service", e.getMessage());
+        }
+    }
 }
