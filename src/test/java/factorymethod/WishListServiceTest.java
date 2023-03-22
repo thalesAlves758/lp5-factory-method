@@ -77,4 +77,16 @@ public class WishListServiceTest {
             fail();
         }
     }
+
+    @Test
+    void shouldThrowAnExceptionOnDelete() {
+        WishList wishList = new WishList(999, "Teste", "Teste");
+
+        try {
+            wishListService.delete(wishList);
+            fail();
+        } catch (Exception e) {
+            assertEquals("Could not find this wish list", e.getMessage());
+        }
+    }
 }
